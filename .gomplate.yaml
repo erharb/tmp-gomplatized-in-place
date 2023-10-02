@@ -3,7 +3,7 @@ leftDelim: "{{{{"
 rightDelim: "}}}}"
 inputDir: ./
 outputMap: |
-  ./out/{{{{ .in | tmpl.Inline | strings.ReplaceAll ".tmpl" "" }}}}
+  ./{{{{ .in | tmpl.Inline | strings.ReplaceAll ".tmpl" "" }}}}
 context:
   data:
     url: skeleton-data.yaml

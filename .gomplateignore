@@ -4,5 +4,4 @@
 .gomplateignore
 gomplate.sh
 LICENSE
-out
 skeleton-data.yaml

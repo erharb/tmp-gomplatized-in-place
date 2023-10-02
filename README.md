@@ -34,26 +34,17 @@ gomplate version 0.0.0
 4. Modify the included `skeleton-data.yaml` input data file with the appropriate substitution
    values for the provided properties for your new project.
 
-5. Run the following command to run gomplate, which will place the templatized
-   folders and files into the `./out` directory.
+5. Stash your input data file in case it is needed later to start over:
+
+   ```bash
+   git stash store "$(git stash create)" -m "gomplate input data backup"
+   ```
+
+6. Run the following command to run gomplate, which will replace all contents of the current
+   directory with the template output.
 
    ```bash
    gomplate --verbose
-   ```
-
-6. Next, stash your input data file in case it is needed later to start over:
-
-   ```bash
-   git stash push -m "input data backup" -- skeleton-data.yaml
-   ```
-
-7. Replace the contents of the static template files with the templatized
-   folders and files from the `./out` directory.
-
-   ```bash
-   ls -A | grep -xv "out" | grep -xv ".git" | xargs rm -rf && \
-       mv -vf out/{.,}* . ; \
-       rm -r out
    ```
 
    - If you need to start the templatization process over, reset the git index to origin/main.
